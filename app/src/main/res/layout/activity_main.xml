@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout xmlns:tools="http://schemas.android.com/tools"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto">
+
+    <data>
+
+        <import type="java.util.HashMap"/>
+        <import type="com.interview.rxkotlintutorial.R" />
+        <variable
+            name="MusicList"
+            type="HashMap&lt;String,com.interview.rxkotlintutorial.MusicView&gt;"
+            />
+
+
+
+    </data>
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+
+        android:id="@+id/constraintlayout"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".MainActivity"
+        android:background="@color/black"
+        >
+
+
+
+        <LinearLayout
+            android:id="@+id/piano"
+            android:layout_width="match_parent"
+            android:layout_height="204dp"
+            android:layout_marginBottom="1dp"
+            android:orientation="horizontal"
+            android:background="#808080"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <Button
+                android:id="@+id/button"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background='@{MusicList.get("0").visible== true?R.color.white: R.color.colorAccent}'
+                android:backgroundTint='@{MusicList.get("0").visible== true?R.color.white: R.color.colorAccent}'
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="0"
+                android:text="C" />
+
+            <Button
+                android:id="@+id/button2"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background='@{MusicList.get("1").visible== true?R.color.white: R.color.colorAccent}'
+                android:backgroundTint='@{MusicList.get("1").visible== true?R.color.white: R.color.colorAccent}'
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="1"
+                android:text="D" />
+
+            <Button
+                android:id="@+id/button3"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background='@{MusicList.get("2").visible== true?R.color.white: R.color.colorAccent}'
+                android:backgroundTint='@{MusicList.get("2").visible== true?R.color.white: R.color.colorAccent}'
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="2"
+                android:text="E" />
+
+            <Button
+                android:id="@+id/button4"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background='@{MusicList.get("3").visible== true?R.color.white: R.color.colorAccent}'
+                android:backgroundTint='@{MusicList.get("3").visible== true?R.color.white: R.color.colorAccent}'
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="3"
+                android:text="F" />
+
+            <Button
+                android:id="@+id/button5"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background='@{MusicList.get("4").visible== true?R.color.white: R.color.colorAccent}'
+                android:backgroundTint='@{MusicList.get("4").visible== true?R.color.white: R.color.colorAccent}'
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="4"
+                android:text="G"
+                tools:text="G" />
+
+            <Button
+                android:id="@+id/button6"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background='@{MusicList.get("5").visible== true?R.color.white: R.color.colorAccent}'
+                android:backgroundTint='@{MusicList.get("5").visible== true?R.color.white: R.color.colorAccent}'
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="5"
+                android:text="A" />
+
+            <Button
+                android:id="@+id/button7"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:background='@{MusicList.get("6").visible== true?R.color.white: R.color.colorAccent}'
+                android:backgroundTint='@{MusicList.get("6").visible== true?R.color.white: R.color.colorAccent}'
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="6"
+                android:text="B" />
+
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/pianolyrics"
+            android:layout_width="match_parent"
+            android:layout_height="204dp"
+            android:layout_marginBottom="1dp"
+            android:orientation="horizontal"
+            app:layout_constraintBottom_toBottomOf="parent">
+
+
+            <TextView
+                android:id="@+id/lyricc"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="0"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:text='@{MusicList.get("0").priotization}' />
+
+            <TextView
+                android:id="@+id/lyricd"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="1"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:text='@{MusicList.get("1").priotization}' />
+
+            <TextView
+                android:id="@+id/lyrice"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="2"
+                android:textAlignment="center"
+                android:text='@{MusicList.get("2").priotization}' />
+
+            <TextView
+                android:id="@+id/lyricf"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="3"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:text='@{MusicList.get("3").priotization}' />
+
+            <TextView
+                android:id="@+id/lyricg"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="4"
+                android:text='@{MusicList.get("4").priotization}'
+                android:textSize="15sp"
+                android:textAlignment="center"
+                />
+
+            <TextView
+                android:id="@+id/lyrica"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="5"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:text='@{MusicList.get("5").priotization}' />
+
+            <TextView
+                android:id="@+id/lyricb"
+                android:layout_width="wrap_content"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+
+                android:onClick="playAsPerPrioritizationPerList"
+                android:tag="6"
+                android:textAlignment="center"
+                android:textSize="15sp"
+                android:text='@{MusicList.get("6").priotization}'/>
+
+
+        </LinearLayout>
+
+
+        <TextView
+            android:id="@+id/lyrics"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:textSize="22sp"
+            android:textColor="@color/white"
+            android:text="Kanne Kalaimane Kanni Mayil Ena Kanden Unai Naane Anthi Pagal Unnai Naan Paarkiren Aandavanai Ithaithaan Ketkiren Raa Ree Raa Ro O Raa Ree Ro Raa Ree Raa Ro O Raa Ree Ro"
+            app:layout_constraintBottom_toTopOf="@+id/piano"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+</layout>
